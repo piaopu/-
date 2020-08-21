@@ -124,7 +124,7 @@ attribute是死的，property是活的
 
 
 
-## 哪些元素可以自闭合？
+### 哪些元素可以自闭合？
    `<input>`    `<img>`    `<br>` `<hr>`    `<meta>` `<link>`
 
 
