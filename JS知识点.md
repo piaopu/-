@@ -247,6 +247,18 @@ this的指向在函数定义的时候是确定不了的，只有函数执行的�
 如果一个函数中有this，这个函数中包含多个对象，尽管这个函数是被最外层的对象所调用，this指向的也只是它上一级的对象。
 详细 https://www.cnblogs.com/pssp/p/5216085.html
 
+
+### 区分 [ ]数组和{ }对象，本身是不知道的一个变量
+1. 利用constructor
+	[ ].constructor ->Array     { }.constructor ->Object
+2. 利用 instanceof
+	[ ] instanceof Array  -> true的是数组
+	{ } instanceof Array  -> false的是对象
+3. 利用toString
+	Object.prototype.toString.call ( [ ] )； ->  Array
+	Object.prototype.toString.call ( { } )； ->  Object
+	
+
 ------------
 
 ### 跨域资源共享CORS
