@@ -13,23 +13,13 @@ clientWidth = width+左右padding
 offsetWidth = width + 左右padding + 左右border
 
 
-### 选择器分类
-元素选择器 a{}
-伪元素选择器 ::before{}
-类选择器 .link{}
-属性选择器 [type=radio]{} 
-伪类选择器 :hover{}
-ID选择器 #id{}
-组合选择器 [type=checkbox]+label{}
-否定选择器 :not(.link){}
-通用选择器 *{}
-
 ### 选择器权重
 选择器本身的权重 加法不进位
-ID选择器 #id{} +100
-类 属性 伪类 +10
-元素 伪元素 +1
-其他选择器 +0
+- ID选择器 #id{} +100
+- 类 属性 伪类 +10
+- 元素 伪元素 +1
+- 其他选择器 +0
+
 其他情况
 ！important 优先级最高
 内联样式优先级高 +1000
@@ -38,10 +28,18 @@ ID选择器 #id{} +100
 
 
 ### 伪元素和伪类的区别
-伪元素 ：：before ：：after
+- 伪元素 ：：before ：：after
 伪元素在DOM树中创建了一些抽象元素，这些抽象元素是不存在于文档语言里的。伪元素是真实存在的，可以有内容和样式。
-伪类 ：hover ：focus
+
+- 伪类 ：hover ：focus
 伪类存在的意义是为了通过选择器找到那些不存在与DOM树中的信息以及不能被常规CSS选择器获取到的信息。伪类相当于选中的一种状态。
+
+
+### css 中可继承的属性
+- 所有元素可继承：visibility和cursor。
+- 内联元素可继承：letter-spacing、word-spacing、white-space、line-height、color、font、font-family、font-size、font-style、font-variant、font-weight、text-decoration、text-transform、direction。
+- 终端块状元素可继承：text-indent和text-align。
+- 列表元素可继承：list-style、list-style-type、list-style-position、list-style-image。
 
 
 ### css 中可继承的属性
