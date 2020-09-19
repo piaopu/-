@@ -13,6 +13,17 @@ clientWidth = width+左右padding
 offsetWidth = width + 左右padding + 左右border
 
 
+### 选择器分类
+- 元素选择器 a{}
+- 伪元素选择器 ::before{}
+- 类选择器 .link{}
+- 属性选择器 [type=radio]{} 
+- 伪类选择器 :hover{}
+- ID选择器 #id{}
+- 组合选择器 [type=checkbox]+label{}
+- 否定选择器 :not(.link){}
+- 通用选择器 *{}
+
 ### 选择器权重
 选择器本身的权重 加法不进位
 - ID选择器 #id{} +100
@@ -42,41 +53,35 @@ offsetWidth = width + 左右padding + 左右border
 - 列表元素可继承：list-style、list-style-type、list-style-position、list-style-image。
 
 
-### css 中可继承的属性
-所有元素可继承：visibility和cursor。
-内联元素可继承：letter-spacing、word-spacing、white-space、line-height、color、font、font-family、font-size、font-style、font-variant、font-weight、text-decoration、text-transform、direction。
-终端块状元素可继承：text-indent和text-align。
-列表元素可继承：list-style、list-style-type、list-style-position、list-style-image。
-
-
 ### margin 参数
 margin标记可以带一个、二个、三个、四个参数，各有不同的含义
-margin: 20px;（上、下、左、右各20px。）
-margin: 20px 40px;（上、下20px；左、右40px。）
-margin: 20px 40px 60px;（上20px；左、右40px；下60px。）
-margin: 20px 40px 60px 80px;（上20px；右40px；下60px；左80px。）
+ - margin: 20px;（上、下、左、右各20px。）
+ - margin: 20px 40px;（上、下20px；左、右40px。）
+ - margin: 20px 40px 60px;（上20px；左、右40px；下60px。）
+ - margin: 20px 40px 60px 80px;（上20px；右40px；下60px；左80px。）
 
 
 
 ### display:none   VS   visibility:hidden
 display:none和visibility:hidden都能把网页上某个元素隐藏起来，但是两者有区别：
 #### 一、display:none
-1、不为被隐藏的对象保留其物理空间。html对象在页面上彻底消失（display:none会让元素完全从渲染树中消失，渲染的时候不占据任何空间）。
-2、是非继承属性，子孙节点消失由于元素从渲染树消失造成的，通过修改子孙节点，属性无法显示。
-3、修改常规文档流元素的display通常会造成文档的重排（reflow）重绘（repaint）。
+1. 不为被隐藏的对象保留其物理空间。html对象在页面上彻底消失（display:none会让元素完全从渲染树中消失，渲染的时候不占据任何空间）。
+2. 是非继承属性，子孙节点消失由于元素从渲染树消失造成的，通过修改子孙节点，属性无法显示。
+3. 修改常规文档流元素的display通常会造成文档的重排（reflow）重绘（repaint）。
+
 #### 二、visibility:hidden
-1、为隐藏的对象保留其物理空间，html对象仅仅是在视觉上看不见（完全透明），而它所占据的空间位置仍然存在（visibility:hidden不会让元素从渲染树中消失，渲染树元素继续占据空间，只是内容不可见）。
-2、是继承，子孙节点消失由于继承了hidden，通过visibility:visible可以让子孙节点显示。
-3、修改visibility属性只会造成文档的重绘（repaint）。
+1. 为隐藏的对象保留其物理空间，html对象仅仅是在视觉上看不见（完全透明），而它所占据的空间位置仍然存在（visibility:hidden不会让元素从渲染树中消失，渲染树元素继续占据空间，只是内容不可见）。
+2. 是继承，子孙节点消失由于继承了hidden，通过visibility:visible可以让子孙节点显示。
+3. 修改visibility属性只会造成文档的重绘（repaint）。
 
 
 ### position属性
 确定元素位置
 static静态/relative相对/absolute绝对/fixed固定
-static：默认情况，按照文件流布局
-relative：相对元素本身的偏移，不改变原来占据的空间
-absolute：脱离文件流，独立存在，就近原则，相对于最近的relative、absolute
-fixed：从文件流脱离，不影响其他，独立存在，相对于可视区域viewport
+- static：默认情况，按照文件流布局
+- relative：相对元素本身的偏移，不改变原来占据的空间
+- absolute：脱离文件流，独立存在，就近原则，相对于最近的relative、absolute
+- fixed：从文件流脱离，不影响其他，独立存在，相对于可视区域viewport
 
 ### 为什么要清除浮动？
 清浮动是为了清除使用浮动元素产生的影响。浮动的元素，高度会塌陷，而高度的塌陷使页面后面的布局不能正常显示。
@@ -94,10 +99,11 @@ fixed：从文件流脱离，不影响其他，独立存在，相对于可视区
 直译为块级格式化上下文
 W3C对BFC的定义如下：浮动元素和绝对定位元素，非块级盒子的块级容器（例如 inline-blocks, table-cells, 和 table-captions），以及overflow值不为“visible”的块级盒子，都会为他们的内容创建新的BFC（块级格式上下文）。
 为了便于理解，我们换一种方式来重新定义BFC。一个HTML元素要创建BFC，则满足下列的任意一个或多个条件即可：
-1、float的值不是none。
-2、position的值不是static或者relative。
-3、display的值是inline-block、table-cell、flex、table-caption或者inline-flex
-4、overflow的值不是visible
+1. float的值不是none。
+2. position的值不是static或者relative。
+3. display的值是inline-block、table-cell、flex、table-caption或者inline-flex
+4. overflow的值不是visible
+
 BFC是一个独立的布局环境，其中的元素布局是不受外界的影响，并且在一个BFC中，块盒与行盒（行盒由一行中所有的内联元素所组成）都会垂直的沿着其父元素的边框排列。
 
 
@@ -106,9 +112,10 @@ BFC是一个独立的布局环境，其中的元素布局是不受外界的影�
 2. visited:连接被访问过之后
 3. hover:鼠标放到连接上的时候
 4. active:连接被按下的时候
+
 正确顺序：“爱恨原则”（LoVe/HAte），即四种伪类的首字母:LVHA。再重复一遍正确的顺序：a:link、a:visited、a:hover、a:active
 
-
+### text-shadow
 text-shadow 属性中的四个值（length,length,length,color）分别的意义：阴影离开文字的横方向距离，阴影离开文字的纵方向距离，阴影的模糊半径，阴影的颜色
 
 
@@ -196,11 +203,11 @@ skew（倾斜）
 #### flex布局
 
 #### @media媒体查询
-@media screen and (max-width: 300px) {
+    @media screen and (max-width: 300px) {
     body {
-        background-color:lightblue;
+            background-color:lightblue;
+        }
     }
-}
 
 ------------
 
@@ -238,8 +245,8 @@ div{
 
 
 ### width: auto 和 width: 100% 的区别？
-·width: 100% 会使元素box的宽度等于父元素的content box的宽度
-·width: auto 会时元素撑满整个父元素，margin, border, padding, content 区域会自动分配水平
+- width: 100% 会使元素box的宽度等于父元素的content box的宽度
+- width: auto 会时元素撑满整个父元素，margin, border, padding, content 区域会自动分配水平
 
 
 ### 使用 base64 编码的优缺点
