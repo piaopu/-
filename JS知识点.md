@@ -267,6 +267,11 @@ https://www.cnblogs.com/john-hwd/p/10509480.html
 http://www.ruanyifeng.com/blog/2016/04/cors.html
 
 
+### mouseover和mouseenter两个事件的区别
+mouseover(鼠标覆盖)
+mouseenter(鼠标进入)
+二者的本质区别在于，mouseenter不会冒泡，简单的说，它不会被它本身的子元素的状态影响到。但是mouseover就会被它的子元素影响到，在触发子元素的时候，mouseover会冒泡触发它的父元素，(想要阻止mouseover的冒泡事件就用mouseenter)
+共同点：当二者都没有子元素时，二者的行为是一致的，但是二者内部都包含子元素时，行为就不同了。
 
 
 
