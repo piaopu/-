@@ -8,30 +8,31 @@ DOCTYPE主要作用是告诉浏览器的解析器使用哪种HTML规范或者XHT
 
 
 ### HTML5提供的数据存储
-localStorage  没有时间限制的数据存储
-sessionStorage  针对一个session的数据存储
+- localStorage  没有时间限制的数据存储
+- sessionStorage  针对一个session的数据存储
 
 
 ### 请描述一下 Cookie，sessionStorage 和 localStorage 的区别？
 
-+ Cookie 是网站为了标示用户身份而储存在用户本地终端（Client Side）上的数据（通常经过加密），Cookie 数据始终在同源的 http 请求中携带（即使不需要），会在浏览器和服务器间来回传递。
+####  Cookie
+Cookie 是网站为了标示用户身份而储存在用户本地终端（Client Side）上的数据（通常经过加密），Cookie 数据始终在同源的 http 请求中携带（即使不需要），会在浏览器和服务器间来回传递。
 
-+ Cookie的处理分为
-服务器向客户端发送cookie -> 浏览器将cookie保存 -> 之后每次http请求浏览器都会将cookie发送给服务器端
+Cookie的处理分为：服务器向客户端发送cookie -> 浏览器将cookie保存 -> 之后每次http请求浏览器都会将cookie发送给服务器端
 
+### 区别
 + sessionStorage 和 localStorage 不会自动把数据发给服务器，仅在本地保存。
 
 + 存储大小
-- cookie 数据大小不能超过 4k；
-- sessionStorage 和 localStorage 虽然也有存储大小的限制，但比 cookie 大得多，可以达到 5M 或更大。
+ - cookie 数据大小不能超过 4k；
+ - sessionStorage 和 localStorage 虽然也有存储大小的限制，但比 cookie 大得多，可以达到 5M 或更大。
 
 + 有效期（生命周期）
-- localStorage: 存储持久数据，浏览器关闭后数据不丢失除非主动删除数据；
-- sessionStorage: 数据在当前浏览器窗口关闭后自动删除；
-- cookie: 设置的 cookie 过期时间之前一直有效，即使窗口或浏览器关闭。
+ - localStorage: 存储持久数据，浏览器关闭后数据不丢失除非主动删除数据；
+ - sessionStorage: 数据在当前浏览器窗口关闭后自动删除；
+ - cookie: 设置的 cookie 过期时间之前一直有效，即使窗口或浏览器关闭。
 
 + 共享
-- sessionStorage 不能共享，localStorage 在同源文档之间共享，cookie 在同源且符合 path 规则的文档之间共享。
+ - sessionStorage 不能共享，localStorage 在同源文档之间共享，cookie 在同源且符合 path 规则的文档之间共享。
 
 
 ### HTML5 语义化标签
@@ -133,7 +134,9 @@ attribute是死的，property是活的
 当图片正常输出的时候，不会出现 alt 信息，鼠标放上去会出现 title 信息。
 
 
-
+### 有哪些元素有target属性
+target 属性规定在何处打开 action URL
+`<a target="value">`  `<form target="value">`
 
 
 
