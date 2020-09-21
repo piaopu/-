@@ -12,27 +12,46 @@ DOCTYPE主要作用是告诉浏览器的解析器使用哪种HTML规范或者XHT
 - sessionStorage  针对一个session的数据存储
 
 
-### 请描述一下 Cookie，sessionStorage 和 localStorage 的区别？
-
-####  Cookie
+### Cookie
 Cookie 是网站为了标示用户身份而储存在用户本地终端（Client Side）上的数据（通常经过加密），Cookie 数据始终在同源的 http 请求中携带（即使不需要），会在浏览器和服务器间来回传递。
 
 Cookie的处理分为：服务器向客户端发送cookie -> 浏览器将cookie保存 -> 之后每次http请求浏览器都会将cookie发送给服务器端
 
-### 区别
-+ sessionStorage 和 localStorage 不会自动把数据发给服务器，仅在本地保存。
+#### Cookie组成
+Cookie由一个名称（Name）、一个值（Value）和其它几个用于控制Cookie有效期、安全性、使用范围的可选属性组成。其中：
 
-+ 存储大小
- - cookie 数据大小不能超过 4k；
- - sessionStorage 和 localStorage 虽然也有存储大小的限制，但比 cookie 大得多，可以达到 5M 或更大。
+1. Name/Value：设置Cookie的名称及相对应的值，对于认证Cookie，Value值包括Web服务器所提供的访问令牌。
 
-+ 有效期（生命周期）
- - localStorage: 存储持久数据，浏览器关闭后数据不丢失除非主动删除数据；
- - sessionStorage: 数据在当前浏览器窗口关闭后自动删除；
- - cookie: 设置的 cookie 过期时间之前一直有效，即使窗口或浏览器关闭。
+2. Expires属性：设置Cookie的生存期。有两种存储类型的Cookie：会话性与持久性。Expires属性缺省时，为会话性Cookie，仅保存在客户端内存中，并在用户关闭浏览器时失效；持久性Cookie会保存在用户的硬盘中，直至生存期到或用户直接在网页中单击“注销”等按钮结束会话时才会失效。
 
-+ 共享
- - sessionStorage 不能共享，localStorage 在同源文档之间共享，cookie 在同源且符合 path 规则的文档之间共享。
+3. Path属性：定义了Web站点上可以访问该Cookie的目录。
+
+4. Domain属性：指定了可以访问该 Cookie 的 Web 站点或域。Cookie 机制并未遵循严格的同源策略，允许一个子域可以设置或获取其父域的 Cookie。当需要实现单点登录方案时，Cookie 的上述特性非常有用，然而也增加了 Cookie受攻击的危险，比如攻击者可以借此发动会话定置攻击。因而，浏览器禁止在 Domain 属性中设置.org、.com 等通用顶级域名、以及在国家及地区顶级域下注册的二级域名，以减小攻击发生的范围 。
+
+5. Secure属性：指定是否使用HTTPS安全协议发送Cookie。使用HTTPS安全协议，可以保护Cookie在浏览器和Web服务器间的传输过程中不被窃取和篡改。该方法也可用于Web站点的身份鉴别，即在HTTPS的连接建立阶段，浏览器会检查Web网站的SSL证书的有效性。但是基于兼容性的原因（比如有些网站使用自签署的证书）在检测到SSL证书无效时，浏览器并不会立即终止用户的连接请求，而是显示安全风险信息，用户仍可以选择继续访问该站点。由于许多用户缺乏安全意识，因而仍可能连接到Pharming攻击所伪造的网站。
+
+6. HTTPOnly 属性 ：用于防止客户端脚本通过document.cookie属性访问Cookie，有助于保护Cookie不被跨站脚本攻击窃取或篡改。但是，HTTPOnly的应用仍存在局限性，一些浏览器可以阻止客户端脚本对Cookie的读操作，但允许写操作；此外大多数浏览器仍允许通过XMLHTTP对象读取HTTP响应中的Set-Cookie头。
+
+
+### 请描述一下 Cookie，sessionStorage 和 localStorage 的区别？
+
+- 存储方式
+sessionStorage 和 localStorage 不会自动把数据发给服务器，仅在本地保存。Cookie 是网站为了标示用户身份而储存在用户本地终端（Client Side）上的数据（通常经过加密），Cookie 数据始终在同源的 http 请求中携带（即使不需要），会在浏览器和服务器间来回传递。
+
+- 存储大小
+cookie 数据大小不能超过 4k；
+sessionStorage 和 localStorage 虽然也有存储大小的限制，但比 cookie 大得多，可以达到 5M 或更大。
+
+- 有效期（生命周期）
+localStorage: 存储持久数据，浏览器关闭后数据不丢失除非主动删除数据；
+sessionStorage: 数据在当前浏览器窗口关闭后自动删除；
+cookie: 设置的 cookie 过期时间之前一直有效，即使窗口或浏览器关闭。
+
+- 共享
+sessionStorage 不能共享，localStorage 在同源文档之间共享，cookie 在同源且符合 path 规则的文档之间共享。
+
+
+
 
 
 ### HTML5 语义化标签
@@ -136,6 +155,7 @@ attribute是死的，property是活的
 
 ### 有哪些元素有target属性
 target 属性规定在何处打开 action URL
+
 `<a target="value">`  `<form target="value">`
 
 
