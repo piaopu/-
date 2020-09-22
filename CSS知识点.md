@@ -2,10 +2,10 @@
 
 
 ### 盒模型
-  Margin(外边距) - 清除边框外的区域，外边距是透明的。
-  Border(边框) - 围绕在内边距和内容外的边框。
-  Padding(内边距) - 清除内容周围的区域，内边距是透明的。
-  Content(内容) - 盒子的内容，显示文本和图像。
+Margin(外边距) - 清除边框外的区域，外边距是透明的。  
+Border(边框) - 围绕在内边距和内容外的边框。  
+Padding(内边距) - 清除内容周围的区域，内边距是透明的。  
+Content(内容) - 盒子的内容，显示文本和图像。
 
 ##### clientWidth的实际宽度
 clientWidth = width+左右padding
@@ -17,7 +17,7 @@ offsetWidth = width + 左右padding + 左右border
 - 元素选择器 a{}
 - 伪元素选择器 ::before{}
 - 类选择器 .link{}
-- 属性选择器 [type=radio]{} 
+- 属性选择器 [type=radio]{}
 - 伪类选择器 :hover{}
 - ID选择器 #id{}
 - 组合选择器 [type=checkbox]+label{}
@@ -31,19 +31,19 @@ offsetWidth = width + 左右padding + 左右border
 - 元素 伪元素 +1
 - 其他选择器 +0
 
-其他情况
-  ！important 优先级最高
-  内联样式优先级高 +1000
-  相同权重，后写的生效
+其他情况  
+！important 优先级最高  
+内联样式优先级高 +1000  
+相同权重，后写的生效
 
 
 
 ### 伪元素和伪类的区别
-- 伪元素 ：：before ：：after
-  伪元素在DOM树中创建了一些抽象元素，这些抽象元素是不存在于文档语言里的。伪元素是真实存在的，可以有内容和样式。
+- 伪元素 ：：before ：：after  
+伪元素在DOM树中创建了一些抽象元素，这些抽象元素是不存在于文档语言里的。伪元素是真实存在的，可以有内容和样式。
 
-- 伪类 ：hover ：focus
-  伪类存在的意义是为了通过选择器找到那些不存在与DOM树中的信息以及不能被常规CSS选择器获取到的信息。伪类相当于选中的一种状态。
+- 伪类 ：hover ：focus  
+伪类存在的意义是为了通过选择器找到那些不存在与DOM树中的信息以及不能被常规CSS选择器获取到的信息。伪类相当于选中的一种状态。
 
 
 ### css 中可继承的属性
@@ -76,7 +76,7 @@ display:none和visibility:hidden都能把网页上某个元素隐藏起来，但
 
 
 ### position属性
-确定元素位置
+确定元素位置  
 static静态/relative相对/absolute绝对/fixed固定
 - static：默认情况，按照文件流布局
 - relative：相对元素本身的偏移，不改变原来占据的空间
@@ -96,9 +96,9 @@ static静态/relative相对/absolute绝对/fixed固定
 
 
 ### BFC (Block formatting context)
-直译为块级格式化上下文
-  W3C对BFC的定义如下：浮动元素和绝对定位元素，非块级盒子的块级容器（例如 inline-blocks, table-cells, 和 table-captions），以及overflow值不为“visible”的块级盒子，都会为他们的内容创建新的BFC（块级格式上下文）。
-  为了便于理解，我们换一种方式来重新定义BFC。一个HTML元素要创建BFC，则满足下列的任意一个或多个条件即可：
+直译为块级格式化上下文  
+W3C对BFC的定义如下：浮动元素和绝对定位元素，非块级盒子的块级容器（例如 inline-blocks, table-cells, 和 table-captions），以及overflow值不为“visible”的块级盒子，都会为他们的内容创建新的BFC（块级格式上下文）。  
+为了便于理解，我们换一种方式来重新定义BFC。一个HTML元素要创建BFC，则满足下列的任意一个或多个条件即可：
 1. float的值不是none。
 2. position的值不是static或者relative。
 3. display的值是inline-block、table-cell、flex、table-caption或者inline-flex
@@ -120,9 +120,9 @@ text-shadow 属性中的四个值（length,length,length,color）分别的意义
 
 
 ### 响应式设计和布局
- 响应式网站设计(Responsive Web design)是一个网站能够兼容多个终端，而不是为每一个终端做一个特定的版本
-  主要方法：隐藏+折行+自适应空间
-  rem/viewport/media query媒体查询
+响应式网站设计(Responsive Web design)是一个网站能够兼容多个终端，而不是为每一个终端做一个特定的版本  
+主要方法：隐藏+折行+自适应空间  
+rem/viewport/media query媒体查询
 
 ### flex 弹性盒子
 flex 是 Flexible Box 的缩写，意为"弹性布局"，用来为盒状模型提供最大的灵活性。
@@ -137,68 +137,68 @@ flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 au
 
 ### CSS3 新特性
 #### css3的新选择器
-  E:nth-child(n) 选择器匹配其父元素的第n个子元素，不论元素类型，n可以使数字，关键字，或公式
-  E:nth-of-type(n) 选择与之其匹配的父元素的第N个子元素
-  E:frist-child 相对于父级做参考，“所有”子元素的第一个子元素，并且“位置”要对应
-  E:frist-of-type 相对于父级做参考，“特定类型”（E）的第一个子元素
-  E:empty 选择没有子元素的每个E元素
-  E:target 选择当前活动的E元素
-  ::selection 选择被用户选取的元素部分
-  属性选择器
-  E[abc*="def"] 选择adc属性值中包含子串"def"的所有元素
+E:nth-child(n) 选择器匹配其父元素的第n个子元素，不论元素类型，n可以使数字，关键字，或公式  
+E:nth-of-type(n) 选择与之其匹配的父元素的第N个子元素  
+E:frist-child 相对于父级做参考，“所有”子元素的第一个子元素，并且“位置”要对应  
+E:frist-of-type 相对于父级做参考，“特定类型”（E）的第一个子元素  
+E:empty 选择没有子元素的每个E元素  
+E:target 选择当前活动的E元素  
+::selection 选择被用户选取的元素部分  
+属性选择器  
+E[abc*="def"] 选择adc属性值中包含子串"def"的所有元素
 
 #### 文本
-  text-shadow:2px 2px 8px #000;参数1为向右的偏移量，参数2为向左的偏移量，参数3为渐变的像素，参数4为渐变的颜色
-  text-overflow：规定当文本溢出包含元素时发生的事情 text-overflow:ellipsis(省略)
-  text-wrap：规定文本换行的规则
-  word-break 规定非中日韩文本的换行规则
-  word-wrap：对长的不可分割的单词进行分割并换行到下一行
-  white-space：规定如何处理元素中的空白 white-space:nowrap 规定段落中的文本不进行换行
-  font-face属性：定义自己的字体
+text-shadow:2px 2px 8px #000;参数1为向右的偏移量，参数2为向左的偏移量，参数3为渐变的像素，参数4为渐变的颜色  
+text-overflow：规定当文本溢出包含元素时发生的事情 text-overflow:ellipsis(省略)  
+text-wrap：规定文本换行的规则  
+word-break 规定非中日韩文本的换行规则  
+word-wrap：对长的不可分割的单词进行分割并换行到下一行  
+white-space：规定如何处理元素中的空白 white-space:nowrap 规定段落中的文本不进行换行  
+font-face属性：定义自己的字体
 
 
 #### 边框
-  border-raduis 边框的圆角
-  border-image 边框图片
+border-raduis 边框的圆角  
+border-image 边框图片
 
 #### 背景
-- rgba
-  RGBA是RGB色彩模型的一个扩展。在本质上看也是为设置的元素增加了一个 alpha 通道，即除了红绿蓝三种颜色外还增加一个代表透明度的通道，其中 RGB 值分别表示红色、绿色、蓝色，而 alpha 取值则为 0 到 1 （小数位一位）。
+- rgba  
+RGBA是RGB色彩模型的一个扩展。在本质上看也是为设置的元素增加了一个 alpha 通道，即除了红绿蓝三种颜色外还增加一个代表透明度的通道，其中 RGB 值分别表示红色、绿色、蓝色，而 alpha 取值则为 0 到 1 （小数位一位）。
 
 - background-image：设置元素的背景图像。
 - background-origin：规定背景图片的定位区域。
 - background-repeat：设置是否及如何重复背景图像。
 
-- backgrounnd-size: cover/contain
-  background-size: cover，会使“最大”边进行缩放，另一边同比缩放，铺满容器，超出部分会溢出。
-  background-size: contain，会使“最小”边进行缩放，另一边同比缩放，不一定铺满容器，会完整显示图片。
+- backgrounnd-size: cover/contain  
+background-size: cover，会使“最大”边进行缩放，另一边同比缩放，铺满容器，超出部分会溢出。
+background-size: contain，会使“最小”边进行缩放，另一边同比缩放，不一定铺满容器，会完整显示图片。
 
 #### 渐变
-- linear-gradient
-  background-image:linear-gradient(90deg,yellow 20%,green 80%)
-- radial-gradient
-  background-iamge:radial-gradient(120px at center center,yellow,green)
+- linear-gradient  
+background-image:linear-gradient(90deg,yellow 20%,green 80%)
+- radial-gradient  
+background-iamge:radial-gradient(120px at center center,yellow,green)
 
 #### 多列布局
-  column-count
-  column-width
-  column-gap
-  column-rule
+column-count
+column-width  
+column-gap  
+column-rule  
 
 + 过渡
-  transition
-  transition-property:width //property为定义过渡的css属性列表，列表以逗号分隔
-  transition-duration:2s; //过渡持续的时间
-  transition-timing-function:ease;
-  transition-delay:5s //过渡延迟5s进行
+transition  
+transition-property:width //property为定义过渡的css属性列表，列表以逗号分隔  
+transition-duration:2s; //过渡持续的时间  
+transition-timing-function:ease;  
+transition-delay:5s //过渡延迟5s进行
 
 #### 动画、旋转
-  animation
-  transform ：translate（x,y) rotate(deg) scale(x,y)
-  translate
-  scale
-  rotate
-  skew（倾斜）
+animation  
+transform ：translate（x,y) rotate(deg) scale(x,y)  
+translate  
+scale  
+rotate  
+skew（倾斜）
 
 #### flex布局
 
@@ -250,26 +250,25 @@ div{
 
 
 ### 使用 base64 编码的优缺点
-
- base64编码是一种图片处理格式，通过特定的算法将图片编码成一长串字符串，在页面上显示时可用该字符串来代替图片的url属性
+base64编码是一种图片处理格式，通过特定的算法将图片编码成一长串字符串，在页面上显示时可用该字符串来代替图片的url属性  
 ##### 使用base64的优点
- ① 减少一个图片的 HTTP 请求
+① 减少一个图片的 HTTP 请求
 ##### 使用base64的缺点
-  ① 根据base64的编码原理，编码后的大小会比源文件大小大1/3，如果把大图片编码到html/css中，不仅会造成文件体积增加，影响文件的加载速度，还会增加浏览器对html或css文件解析渲染的时间。
-  ② 使用base64无法直接缓存，要缓存只能缓存包含base64的文件，比如HTML 或CSS，这相比于直接缓存图片的效果要差很多。
-  ③ ie8以前的浏览器不支持
+① 根据base64的编码原理，编码后的大小会比源文件大小大1/3，如果把大图片编码到html/css中，不仅会造成文件体积增加，影响文件的加载速度，还会增加浏览器对html或css文件解析渲染的时间。  
+② 使用base64无法直接缓存，要缓存只能缓存包含base64的文件，比如HTML 或CSS，这相比于直接缓存图片的效果要差很多。  
+③ ie8以前的浏览器不支持  
  一般一些网站的小图标可以使用base64图片引入
 
 
 
 ### px、em、rem区别介绍
-  px 像素（Pixel）。相对长度单位。像素px是相对于显示器屏幕分辨率而言的。
-  em 是相对长度单位。相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。特点是：em的值并不是固定的；em会继承父级元素的字体大小
-  rem是CSS3新增的一个相对单位（root em，根em），网页中，rem 作为元素尺寸单位时，是相对文档根节点的 font-size 进行计算的
+px 像素（Pixel）。相对长度单位。像素px是相对于显示器屏幕分辨率而言的。  
+em 是相对长度单位。相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。特点是：em的值并不是固定的；em会继承父级元素的字体大小。  
+rem是CSS3新增的一个相对单位（root em，根em），网页中，rem 作为元素尺寸单位时，是相对文档根节点的 font-size 进行计算的
 
 ### px 与 rem 的选择？
-  对于只需要适配少部分手机设备，且分辨率对页面影响不大的，使用px即可 。
-  对于需要适配各种移动设备，使用rem，例如只需要适配iPhone和iPad等分辨率差别比较挺大的设备。
+对于只需要适配少部分手机设备，且分辨率对页面影响不大的，使用px即可 。  
+对于需要适配各种移动设备，使用rem，例如只需要适配iPhone和iPad等分辨率差别比较挺大的设备。
 
 ------------
 
