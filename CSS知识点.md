@@ -7,6 +7,17 @@ Border(边框) - 围绕在内边距和内容外的边框。
 Padding(内边距) - 清除内容周围的区域，内边距是透明的。  
 Content(内容) - 盒子的内容，显示文本和图像。
 
+标准模型：content的宽高  
+IE模型：content+padding+border 三者合起来的宽高  
+区分以上两种模型： box-sizing：content-box/border-box  默认标准模型  
+
+JS如何设置获取盒模型对应的宽和高  
+dom.style.width/height 取内联属性 css中不行  
+dom.currentStyle.width/height 渲染后的宽和高 都可以取到 IE  
+window.getComputedStyle(dom).width/height 火狐/谷歌 兼容性好一点  
+dom.getBoundingClientRect().width/height 绝对位置
+
+
 ##### clientWidth的实际宽度
 clientWidth = width+左右padding
 ##### offsetWidth的实际宽度
