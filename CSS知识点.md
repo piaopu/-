@@ -24,6 +24,19 @@ clientWidth = width+左右padding
 offsetWidth = width + 左右padding + 左右border
 
 
+
+### BFC (Block formatting context)
+直译为块级格式化上下文
+BFC是一个独立的布局环境，其中的元素布局是不受外界的影响，并且在一个BFC中，块盒与行盒（行盒由一行中所有的内联元素所组成）都会垂直的沿着其父元素的边框排列。BFC主要用来解决编剧重叠的问题。  
+一个HTML元素要创建BFC，则满足下列的任意一个或多个条件即可：
+1. float的值不是none。
+2. position的值不是static或者relative。
+3. display的值是inline-block、table-cell、flex、table-caption或者inline-flex
+4. overflow的值不是visible
+
+BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。  
+因为BFC内部的元素和外部的元素绝对不会互相影响，因此， 当BFC外部存在浮动时，它不应该影响BFC内部Box的布局，BFC会通过变窄，而不与浮动有重叠。同样的，当BFC内部有浮动时，为了不影响外部元素的布局，BFC计算高度时会包括浮动的高度。避免margin重叠也是这样的一个道理。
+
 ### 选择器分类
 - 元素选择器 a{}
 - 伪元素选择器 ::before{}
@@ -104,18 +117,6 @@ static静态/relative相对/absolute绝对/fixed固定
 + 父级设置成inline-block，其margin: 0 auto居中方式失效
 + 给父级添加overflow:hidden 清除浮动方法
 + 万能清除法 after伪元素 清浮动（现在主流方法，推荐使用）
-
-
-### BFC (Block formatting context)
-直译为块级格式化上下文  
-W3C对BFC的定义如下：浮动元素和绝对定位元素，非块级盒子的块级容器（例如 inline-blocks, table-cells, 和 table-captions），以及overflow值不为“visible”的块级盒子，都会为他们的内容创建新的BFC（块级格式上下文）。  
-为了便于理解，我们换一种方式来重新定义BFC。一个HTML元素要创建BFC，则满足下列的任意一个或多个条件即可：
-1. float的值不是none。
-2. position的值不是static或者relative。
-3. display的值是inline-block、table-cell、flex、table-caption或者inline-flex
-4. overflow的值不是visible
-
-BFC是一个独立的布局环境，其中的元素布局是不受外界的影响，并且在一个BFC中，块盒与行盒（行盒由一行中所有的内联元素所组成）都会垂直的沿着其父元素的边框排列。
 
 
 ### a:link,a:visited,a:hover,a:active 分别是什么意思?
