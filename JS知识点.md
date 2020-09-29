@@ -147,46 +147,70 @@ bind：bind()方法创建一个新的函数，在bind()被调用时，这个新�
 
 ------------
 
-### 事件触发三阶段
-事件触发有三个阶段
-* window 往事件触发处传播，遇到注册的捕获事件会触发
-* 传播到事件触发处时触发注册的事件
-* 从事件触发处往 window 传播，遇到注册的冒泡事件会触发
+
+### DOM事件的级别
+DOM0 element.onclick = function(){}  
+DOM2 element.addEventListener(‘click’, funttion(){}, false)  
+DOM3 element.addEventListener(‘keyup’, funttion(){}, false) 事件增加了，如键盘时间等    
+
+
+### 事件触发三阶段（事件流）
+1. window 往事件触发处传播，遇到注册的捕获事件会触发  
+window -- document -- html -- body -- ……  目标元素  
+2. 传播到事件触发处时触发注册的事件
+3. 从事件触发处往 window 传播，遇到注册的冒泡事件会触发
+
 事件触发一般来说会按照上面的顺序进行，但是也有特例，如果给一个目标节点同时注册冒泡和捕获事件，事件触发会按照注册的顺序执行。
 
 ### 事件处理模型—冒泡、捕获
 #### 事件冒泡
-代码结构上（非视觉上）嵌套关系的元素，会存在事件冒泡的功能，即同一事件，自子元素冒泡向父元素。（自底向上）
-addEventListener(type, fn, false) 冒泡
-focus聚焦 blur change submit reset select 等事件没有冒泡
+代码结构上（非视觉上）嵌套关系的元素，会存在事件冒泡的功能，即同一事件，自子元素冒泡向父元素。（自底向上）  
+addEventListener(type, fn, false) 冒泡  
+focus聚焦 blur change submit reset select 等事件没有冒泡  
 
 #### 事件捕获
-结构上（非视觉上）嵌套关系的元素，会存在事件捕获的功能，即同一事件，自父元素捕获至子元素（事件源元素）。（自顶向下）
-addEventListener(type, fn, true) 捕获
-IE没有捕获事件
+结构上（非视觉上）嵌套关系的元素，会存在事件捕获的功能，即同一事件，自父元素捕获至子元素（事件源元素）。（自顶向下）  
+addEventListener(type, fn, true) 捕获  
+IE没有捕获事件  
 
 ##### 冒泡、捕获都是指的对父级元素的处理，不包括触发事件的那个元素
 
 #### 阻止事件冒泡
-W3C标准 event.stopPropagation(); 但不支持ie9以下版本
-IE独有event.cancelBubble = true;
-封装取消冒泡的函数 stopBubble(event)
+W3C标准 event.stopPropagation(); 但不支持ie9以下版本  
+IE独有event.cancelBubble = true;  
+封装取消冒泡的函数 stopBubble(event)  
 
 #### 阻止默认事件
-默认事件 — 表单提交，a标签跳转，右键菜单等
-1. return false;  以对象属性的方式注册的事件才生效
-句柄 div.onclick = function(){};
-2. event.preventDefault(); W3C标准，IE9以下不兼容
+默认事件 — 表单提交，a标签跳转，右键菜单等  
+1. return false;  以对象属性的方式注册的事件才生效  
+句柄 div.onclick = function(){};  
+2. event.preventDefault(); W3C标准，IE9以下不兼容  
 3. event.returnValue = false; 兼容IE 
 
-#### 事件委托
-将本来需要 A 处理的事情，委托给 B 来处理。
-利用事件冒泡，和事件源对象进行事件处理
-优点：
+
+### 事件委托
+将本来需要 A 处理的事情，委托给 B 来处理。  
+利用事件冒泡，和事件源对象进行事件处理  
+优点：  
 - 性能 不需要循环所有的元素一个个绑定事件
 - 灵活 当有新的子元素时不需要重新绑定事件
 
+
+event.target 当5个子元素 都要绑定一个行为，为了优化我们利用事件委托，可以在其父元素上绑定该行为，并通过event.target寻找触发事件的父元素的子元素  
+event.currentTarget 仍是4的例子，可以找到当前绑定事件的对象，就是4步骤的父元素，而非子元素
+
+### 自定义事件
+    var eve = new Event（'custome'）
+    element(dom节点).addEventListen('custome', function(){})
+    element(dom节点).dispatchEvent(eve)
+    
+    **注意** Event 可以替换为 CustomEvent，区别在于CustomEvent可以接受一个对象参数  
+
+
+
 ------------
+
+
 
 ### JS加载时间线
 在js加载开始的时候，浏览器会记录js执行的这段过程。
